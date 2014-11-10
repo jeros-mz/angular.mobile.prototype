@@ -1,0 +1,37 @@
+{
+  "page" : {
+    "title" : "층별안내",
+    "link" : "#/Floor"
+  },
+  "floors" : [{
+      "_index" : "0",
+      "floor" : "B2F",
+      "category" : "주차장",
+      "link" : "#/Floor/B2"
+    },{
+      "_index" : "1",
+      "floor" : "B1F",
+      "category" : "주차장",
+      "link" : "#/Floor/B1"
+    },{
+      "_index" : "2",
+      "floor" : "1F",
+      "category" : "해외명품, 해외패션, 화장품",
+      "link" : "#/Floor/1F"
+    },{
+      "_index" : "3",
+      "floor" : "2F",
+      "category" : "패션의류, 패션잡화, 화장품",
+      "link" : "#/Floor/2F"
+    },{
+      "_index" : "4",
+      "floor" : "3F",
+      "category" : "스포츠/레저, 키즈",
+      "link" : "#/Floor/3F"
+    },{
+      "_index" : "5",
+      "floor" : "4F",
+      "category" : "리빙,F&B, 카페",
+      "link" : "#/Floor/4F"
+    }]
+}

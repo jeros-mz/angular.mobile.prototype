@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no">
+	<title>기본 레이아웃</title>
+	<style>
+		html, body {height:100%;padding:0;}
+		header, footer {background-color:#efefef;height:50px;}
+		header {}
+		
+	</style>
+</head>
+<body>
+	<header ng-controller="headerController">
+		<div aa>{{title}}</div>
+		<div aa>{{shopTitle}}</div>
+	</header>
+	<main>
+		<div ng-view class="view-animate"></div>
+	</main>
+	<footer ng-controller="footerController">
+		<div>aaa</div>
+	</footer>
+	<script src="./scripts/jquery/jquery-1.10.2.min.js"></script>
+	<script src="./scripts/angular/angular.min.js"></script>
+	<script src="./scripts/angular/angular-route.min.js"></script>
+	<script src="./scripts/app.js"></script>
+
+</body>
+</html>
