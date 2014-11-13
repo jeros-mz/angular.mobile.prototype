@@ -8,12 +8,12 @@
  *	http://en.wikipedia.org/wiki/GNU_General_Public_License
  */
 var app = angular.module('app', [
-  'ngRoute',
-  'main',
-  'floor',
-  'viewer',
-  'api'
-  ]);
+	'ngRoute',
+	'main',
+	'floor',
+	'viewer',
+	'api'
+]);
 
 app.constant('appConfig', {
 	title : 'title'
@@ -153,31 +153,48 @@ app.controller('headerController', ['$scope', 'floorService', 'shopService',  fu
 }]);
 
 app.controller('footerController', ['$scope', function($scope) {
+	
 	console.log('app.footerController');
 	console.log($scope);
+	
+	
 }]);
 
-app.controller('mainController', ['$scope', function($scope) {
+app.controller('mainController', ['$scope', '$document', 'viewFactory', function($scope, $document, viewFactory) {
+	
 	console.log('app.mainController');
-	console.log($scope);
+	
+	var body = $document[0].body;
+	
+	console.log(viewFactory);
+	viewFactory.aaa();
+	
+	
+	$scope.showMap = function () {
+		
+		var attr = body.getAttribute('class') || '';
+		// console.log(attr);
+		
+		
+		// $('#viewer').attr('vw-map', 'vw-map');
+		
+		
+		viewFactory.aaa();
+		// $scope.$apply();
+	};
 }]);
 
 
 
 
-var viewer = angular.module('viewer', []);
-
-
+var viewer = angular.module('viewer', ['app']);
 
 viewer.config([function(){
 	
 	console.log('viewer.config');
-	
 }]);
 
 viewer.directive('vwMap', [function(){
-	
-	console.log('viewer.vwMap');
 	
 	return {
 		restrict : 'A',
@@ -190,11 +207,18 @@ viewer.directive('vwMap', [function(){
 	};
 }]);
 
-viewer.controller('viewerController', ['$scope', function($scope) {
-	console.log('app.footerController');
+viewer.controller('viewerController', ['$scope', 'app', function($scope, app) {
+	console.log('viewer.viewerController');
 	console.log($scope);
 }]);
 
+viewer.factory('viewFactory', [function () {
+	return {
+		aaa : function  () {
+			console.log('aaa');
+		}
+	};
+}]);
 
 
 

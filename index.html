@@ -5,10 +5,21 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<title>기본 레이아웃</title>
 	<style>
-		html, body {height:100%;padding:0;}
-		header, footer {background-color:#efefef;height:50px;}
-		header {}
+		html, body {height:100%;width:100%;padding:0;margin:0;}
+		header, footer {position:fixed;background-color:#efefef;width:100%;height:50px;}
+		header {top:0;}
+		footer {bottom:0;}
+		main{
+			position:absolute; top :50px; bottom:50px;
+			width:100%;
+		}
 		
+		#viewer {
+			position : absolute;
+			width:100%;
+			height:100%;
+			display:none;
+		}
 	</style>
 </head>
 <body>
@@ -22,6 +33,7 @@
 	<footer ng-controller="footerController">
 		<div>aaa</div>
 	</footer>
+	<div ng-app="viewer" id="viewer" vm-map></div>
 	<script src="./scripts/jquery/jquery-1.10.2.min.js"></script>
 	<script src="./scripts/angular/angular.min.js"></script>
 	<script src="./scripts/angular/angular-route.min.js"></script>
