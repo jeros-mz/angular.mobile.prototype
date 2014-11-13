@@ -11,6 +11,7 @@ var app = angular.module('app', [
   'ngRoute',
   'main',
   'floor',
+  'viewer',
   'api'
   ]);
 
@@ -27,15 +28,14 @@ app.config(['$routeProvider', '$locationProvider', function( $routeProvider, $lo
 			redirectTo : '/Main'
 		})
 		.when('/Main',{
-			templateUrl : '/pages/main.html'
+			templateUrl : '/pages/main.html',
+			controller : 'mainController'
 		});
 }]);
 
 app.run(['api', function (api) {
-	
 	console.log('app.api');
 }]);
-
 
 app.service('api', ['$http', '$q', function($http, $q){
 	
@@ -157,15 +157,43 @@ app.controller('footerController', ['$scope', function($scope) {
 	console.log($scope);
 }]);
 
+app.controller('mainController', ['$scope', function($scope) {
+	console.log('app.mainController');
+	console.log($scope);
+}]);
 
 
 
 
+var viewer = angular.module('viewer', []);
 
 
 
+viewer.config([function(){
+	
+	console.log('viewer.config');
+	
+}]);
 
+viewer.directive('vwMap', [function(){
+	
+	console.log('viewer.vwMap');
+	
+	return {
+		restrict : 'A',
+		templateUrl : '/pages/viewer.html',
+		replace : false,
+		controller : 'viewerController',
+		compile : function () {
+			console.log('2');
+		}
+	};
+}]);
 
+viewer.controller('viewerController', ['$scope', function($scope) {
+	console.log('app.footerController');
+	console.log($scope);
+}]);
 
 
 
